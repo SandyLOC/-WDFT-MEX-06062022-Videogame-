@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Free Whaly</title>
-    <link rel="icon" type="image/x-icon" href="./img/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
@@ -15,11 +14,16 @@
     
     
     <div class="container">
-        <h1>FREE WHALY</h1>
+        <h1 class="intro">FREE WHALY</h1>
         <div class="run"></div>
-        <button id="start">Start Game</button>
-        <canvas id="escenario" width="1000" height="900" class="noShow"></canvas>
+        <button class="intro" id="start" onclick="startGame()">Start Game</button>
+        <canvas id="canvas" width="2000" height="1200" class="noShow"></canvas>
     </div>
-
+    <script src="./scripts/classCharacter.js"></script>
+    <script src="./scripts/classOrca.js"></script>
+    <script src="./scripts/behavior.js"></script>
+    <script src="./scripts/classEnemy.js"></script>
+    <script src="./scripts/classBubble.js"></script>
+    <script src="./scripts/script.js"></script>
 </body>
 </html>
