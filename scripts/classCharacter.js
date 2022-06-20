@@ -4,35 +4,10 @@ class Character {
         this.y = y;
         this.width = sizex;
         this.height = sizey;
-        this.life = 100;
         this.speed = 1;
         this.ctx = ctx;
         this.img = image;
         this.draw();
-    }
-
-    moveFront() {
-
-    }
-
-    moveBack() {
-
-    }
-
-    jump() {
-
-    }
-
-    goDown() {
-
-    }
-
-    getDamage(damage) {
-
-    }
-
-    isAlive() {
-
     }
 
     draw() {

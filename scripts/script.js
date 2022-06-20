@@ -1,43 +1,32 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const background = new Image();
-background.src = "../images/Ocean-light.png";
-
 const characterOrca = new Image();
 characterOrca.src = "../images/orca.png";
-const orca = new Orca(10,650, 150, 100, ctx, characterOrca);
+const orca = new Orca(10,600,200, 150, ctx, characterOrca);
+
+const ship = new Image();
+ship.src = "../images/ship.png";
+
+const toxicSpill = new Image();
+toxicSpill.src = "../images/oil.png";
 
 let idFrame;
 
-const backgroundImage = {
-    img: background,
-    x: 0,
-    speed: -1,
-
-    move() {
-        this.x += this.speed;
-        this.x %= canvas.width;
-    },
-
-    draw: function () {
-        ctx.drawImage(this.img, this.x, 0, 2000, 1200);
-        if (this.speed < 0) {
-            ctx.drawImage(this.img, this.x + canvas.width, 0, 2000, 1200);
-        } else {
-            ctx.drawImage(this.img, this.x - this.img.width, 0, 2000, 1200);
-        }
-    },
-};
+const enemies = [];
 
 function startGame() {
     /*Start screen behavior*/
     const btnStart = document.querySelectorAll(".intro");
-
     btnStart.forEach(element => element.classList.add("noShow"));
     canvas.classList.remove("noShow");
 
     updateScenario();
+
+    /* Set how often the function to create enemies will be called*/
+    setInterval(() => {
+        createEnemies();
+    }, 3000);
 
 }
 
@@ -46,11 +35,17 @@ function updateScenario() {
     backgroundImage.draw();
     backgroundImage.move();
 
+    /* Draw the orca and the enemies*/
     orca.draw();
+    callEnemies(enemies);
 
     showData(orca.life, orca.x, orca.y, orca.sink, orca.bubbles);
     idFrame = requestAnimationFrame(updateScenario);
 
+    if (!orca.isAlive()) {
+        alert("You died! ☠");
+        cancelAnimationFrame(idFrame);
+    }
 }
 
 function showData(life, x, y, k, b) {
