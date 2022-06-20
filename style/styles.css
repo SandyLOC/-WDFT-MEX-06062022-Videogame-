@@ -1,0 +1,85 @@
+:root{
+    --water-blue: #68ceed
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-image: url("https://78.media.tumblr.com/5290f8bc770ff92d6e64f978484e2a0d/tumblr_ojgoc9jPtX1tqfxrto1_500.gif");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 100vw;
+    height: 100vh;
+}
+.run {
+    position: absolute;
+    top: 5%;
+    left: 70%;
+    background: url(../images/orca_sequence_small.png);
+    overflow: hidden;
+    width: calc(892px / 2);
+    height: 293px;
+    animation: run 1s steps(2) infinite, move 5s linear infinite;
+}
+
+@keyframes run {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -892px;
+    }
+}
+/*@keyframes move {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(892px);
+    }
+    
+}*/
+
+.container{
+    padding-top: 200px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 50px;
+    color: rgb(27, 27, 83);
+}
+#start{
+    margin-top: 250px;
+    padding:20px;
+    background-color: var(--water-blue);
+    font-family: 'Anton', sans-serif;
+    font-size: 40px;
+    color: #fff;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+#start:hover{
+    background-color: transparent;
+    border: 1px solid var(--water-blue);
+    color: var(--water-blue);
+}
+
+
+canvas{
+    border: 1px solid white;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.noShow{
+    display: none;
+}
