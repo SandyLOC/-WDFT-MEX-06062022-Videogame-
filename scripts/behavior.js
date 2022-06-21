@@ -1,4 +1,6 @@
-function configureBehavior() {
+/*-------------------------------Key functionalities--------------------------------*/
+
+function keyBehavior() {
 
     document.addEventListener("keydown", (event) => {
         switch (event.key) {
@@ -10,15 +12,15 @@ function configureBehavior() {
             case "ArrowLeft":
                 orca.moveBack();
                 this.direction = false;
-                orca.img = characterOrcaLeft;
+                //orca.img = characterOrcaLeft;
                 break;
             case "ArrowUp":
                 orca.jump();
-                if (this.direction === true) {
-                    orca.img = orcaJumpR;
-                } else {
-                    orca.img = orcaJumpL;
-                }
+               // if (this.direction === true) {
+               //     orca.img = orcaJumpR;
+               // } else {
+               //     orca.img = orcaJumpL;
+               // }
                 break;
             case "ArrowDown":
                 orca.goDown();

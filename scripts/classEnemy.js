@@ -4,6 +4,7 @@ class Enemy extends Character {
     }
 }
 
+/*-------------------------------Enemies images--------------------------------*/
 const ship = new Image();
 ship.src = "../images/ship.png";
 
@@ -13,6 +14,8 @@ toxicSpill.src = "../images/oil.png";
 const netImage = new Image();
 netImage.src = "../images/toxic.png";
 
+/*-------------------------------Random creation of enemies--------------------------------*/
+const enemies = [];
 const nets = [];
 
 function createEnemies() {
@@ -35,7 +38,8 @@ function createEnemies() {
     }
         const enemy = new Enemy(x, y, sizex, sizey, ctx, typeEnemy);
         enemies.push(enemy);
-    /*Set random release of the nets*/
+
+    /*-----------------------------Set random release of the nets----------------------*/
         if (typeEnemy === ship) {
             setInterval(() => {
             const netRandom = Math.floor(Math.random() * 20);
@@ -47,6 +51,8 @@ function createEnemies() {
 
         }
 }
+
+/*-------------------------------Drawing enemies--------------------------------*/
 
 function callEnemies() {
 enemies.forEach((enemy, index) => {

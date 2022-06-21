@@ -1,3 +1,5 @@
+/*-------------------------------Moving background--------------------------------*/
+
 const background = new Image();
 background.src = "../images/Ocean-light.png";
 

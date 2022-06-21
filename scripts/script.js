@@ -1,37 +1,39 @@
+/*-------------------------------Canvas variable--------------------------------*/
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+/*-------------------------------Orca creation--------------------------------*/
 const characterOrca = new Image();
 characterOrca.src = "../images/orca.png";
 const orca = new Orca(10,300,250, 150, ctx, characterOrca);
 
+/*-------------------------------Frame ID variable declaration--------------------------------*/
 let idFrame;
 
-const enemies = [];
-
+/*-------------------------------Start button behavior--------------------------------*/
 function startGame() {
-    /*Start screen behavior*/
     const btnStart = document.querySelectorAll(".intro");
     btnStart.forEach(element => element.classList.add("noShow"));
     canvas.classList.remove("noShow");
 
     updateScenario();
-    configureBehavior();
-    /* Set how often the function to create enemies will be called*/
+    keyBehavior();
+
+    /*-------------Set how often the function to create enemies will be called--------*/
     setInterval(() => {
         createEnemies();
     }, 5000);
-
 }
-
+/*-------------------------------Scenario update every frame--------------------------------*/
 function updateScenario() {
     ctx.clearRect(0, 0, 2000, 1200);
     backgroundImage.draw();
     backgroundImage.move();
 
-    /* Draw the orca and the enemies*/
+    /*------------------Draw the orca and the enemies---------------------*/
     orca.draw();
-    callEnemies(enemies);
+
+    callEnemies();
 
     showData(orca.life, orca.x, orca.y, orca.sink, orca.bubbles);
     idFrame = requestAnimationFrame(updateScenario);
@@ -45,6 +47,7 @@ function updateScenario() {
     }
 }
 
+/*-------------------------------Data text--------------------------------*/
 function showData(life, x, y, k, b) {
     ctx.font = "40px Arial";
     ctx.fillText(life, 1000, 40);

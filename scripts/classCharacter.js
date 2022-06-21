@@ -1,3 +1,5 @@
+/*-------------------------------Parent class that draws all the characters--------------------------------*/
+
 class Character {
     constructor(x, y, sizex, sizey, ctx, image) {
         this.x = x;
