@@ -3,7 +3,7 @@ class Orca extends Character {
         super(x, y, sizex, sizey, ctx, image);
         this.life = 40;
         this.sink = 0;
-        this.bubbles = 60;
+        this.bubbles = 0;
     }
 
     moveFront() {
@@ -24,6 +24,9 @@ class Orca extends Character {
 
     getDamage(damage) {
         this.life -= damage;
+    }
+    getBubbles(bubbles) {
+        this.bubbles += bubbles;
     }
 
     isAlive() {

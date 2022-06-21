@@ -10,6 +10,16 @@ const orca = new Orca(10,300,250, 150, ctx, characterOrca);
 /*-------------------------------Frame ID variable declaration--------------------------------*/
 let idFrame;
 
+/*-------------------------------Random generator function--------------------------------*/
+function randomNumbers(timer, positionX, positionY) {
+    const randomNum = Math.floor(Math.random() * timer);
+    const randPositionY = Math.floor(Math.random() * (positionX - positionY) + positionY);
+    return {
+        random: randomNum,
+        posY: randPositionY
+    }
+}
+
 /*-------------------------------Start button behavior--------------------------------*/
 function startGame() {
     const btnStart = document.querySelectorAll(".intro");
@@ -23,6 +33,9 @@ function startGame() {
     setInterval(() => {
         createEnemies();
     }, 5000);
+    setInterval(() => {
+        createFish();
+    }, 7000);
 }
 /*-------------------------------Scenario update every frame--------------------------------*/
 function updateScenario() {
@@ -34,6 +47,7 @@ function updateScenario() {
     orca.draw();
 
     callEnemies();
+    callFish();
 
     showData(orca.life, orca.x, orca.y, orca.sink, orca.bubbles);
     idFrame = requestAnimationFrame(updateScenario);

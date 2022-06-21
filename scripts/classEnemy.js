@@ -19,20 +19,19 @@ const enemies = [];
 const nets = [];
 
 function createEnemies() {
-    const random = Math.floor(Math.random() * 40);
-    const randPositionY = Math.floor(Math.random() * (1000 - 280) + 280);
+    const randomNum = randomNumbers(40, 1000, 280);
     let typeEnemy;
-    if (random % 3 === 0) {
+    if (randomNum.random % 3 === 0) {
         typeEnemy = ship;
         x = 1800;
         y = 150;
         sizex = 300;
         sizey = 250;
     }
-    if (random % 2 === 0) {
+    if (randomNum.random % 2 === 0) {
         typeEnemy = toxicSpill;
         x = 1800;
-        y = randPositionY;
+        y = randomNum.posY;
         sizex = 200;
         sizey = 200;
     }
@@ -42,8 +41,8 @@ function createEnemies() {
     /*-----------------------------Set random release of the nets----------------------*/
         if (typeEnemy === ship) {
             setInterval(() => {
-            const netRandom = Math.floor(Math.random() * 20);
-            if (netRandom % 3 === 0) {
+            const randomNum = randomNumbers(20);
+            if (randomNum.random % 3 === 0) {
                 const net = new Enemy(enemy.x, enemy.y + 200, 100, 100, ctx, netImage);
                 nets.push(net);
             }
