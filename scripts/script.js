@@ -3,13 +3,7 @@ const ctx = canvas.getContext("2d");
 
 const characterOrca = new Image();
 characterOrca.src = "../images/orca.png";
-const orca = new Orca(10,600,200, 150, ctx, characterOrca);
-
-const ship = new Image();
-ship.src = "../images/ship.png";
-
-const toxicSpill = new Image();
-toxicSpill.src = "../images/oil.png";
+const orca = new Orca(10,300,250, 150, ctx, characterOrca);
 
 let idFrame;
 
@@ -22,11 +16,11 @@ function startGame() {
     canvas.classList.remove("noShow");
 
     updateScenario();
-
+    configureBehavior();
     /* Set how often the function to create enemies will be called*/
     setInterval(() => {
         createEnemies();
-    }, 3000);
+    }, 5000);
 
 }
 
@@ -45,6 +39,9 @@ function updateScenario() {
     if (!orca.isAlive()) {
         alert("You died! ☠");
         cancelAnimationFrame(idFrame);
+        const endScreen = document.querySelector(".end-game");
+        endScreen.classList.remove("noShow");
+        canvas.classList.add("noShow");
     }
 }
 

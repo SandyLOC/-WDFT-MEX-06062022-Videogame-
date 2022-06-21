@@ -1,25 +1,25 @@
 class Orca extends Character {
     constructor(x, y, sizex, sizey, ctx, image) {
         super(x, y, sizex, sizey, ctx, image);
-        this.life = 100;
+        this.life = 40;
         this.sink = 0;
         this.bubbles = 60;
     }
 
     moveFront() {
-
+        this.x += 60;
     }
 
     moveBack() {
-
+        this.x -= 60;
     }
 
     jump() {
-
+        this.y -= 80;
     }
 
     goDown() {
-
+        this.y += 80;
     }
 
     getDamage(damage) {

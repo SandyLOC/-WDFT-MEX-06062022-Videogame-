@@ -4,14 +4,25 @@ class Enemy extends Character {
     }
 }
 
+const ship = new Image();
+ship.src = "../images/ship.png";
+
+const toxicSpill = new Image();
+toxicSpill.src = "../images/oil.png";
+
+const netImage = new Image();
+netImage.src = "../images/toxic.png";
+
+const nets = [];
+
 function createEnemies() {
     const random = Math.floor(Math.random() * 40);
-    const randPositionY = Math.floor(Math.random() * (1000 - 200) + 200);
+    const randPositionY = Math.floor(Math.random() * (1000 - 280) + 280);
     let typeEnemy;
     if (random % 3 === 0) {
         typeEnemy = ship;
         x = 1800;
-        y = 150
+        y = 150;
         sizex = 300;
         sizey = 250;
     }
@@ -24,6 +35,17 @@ function createEnemies() {
     }
         const enemy = new Enemy(x, y, sizex, sizey, ctx, typeEnemy);
         enemies.push(enemy);
+    /*Set random release of the nets*/
+        if (typeEnemy === ship) {
+            setInterval(() => {
+            const netRandom = Math.floor(Math.random() * 20);
+            if (netRandom % 3 === 0) {
+                const net = new Enemy(enemy.x, enemy.y + 200, 100, 100, ctx, netImage);
+                nets.push(net);
+            }
+        }, 4000);
+
+        }
 }
 
 function callEnemies() {
@@ -34,5 +56,12 @@ enemies.forEach((enemy, index) => {
         orca.getDamage(20);
         enemies.splice(index, 1);
     }
+
 });
+    nets.forEach(net => {
+        net.y += 2;
+        net.x -= 1;
+        net.draw();
+    });
+
 }
