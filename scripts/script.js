@@ -5,15 +5,22 @@ const ctx = canvas.getContext("2d");
 /*-------------------------------Orca creation--------------------------------*/
 const characterOrca = new Image();
 characterOrca.src = "../images/orca.png";
-const orca = new Orca(10,300,250, 150, ctx, characterOrca);
+const orca = new Orca(10,300, 250, 150, ctx, characterOrca);
 
+const orcaLeft = new Image();
+orcaLeft.src = "../images/orcaLeft.png";
+
+const orcaJumpR = new Image();
+orcaJumpR.src = "../images/orcaJumpR.png";
 /*-------------------------------Frame ID variable declaration--------------------------------*/
 let idFrame;
+let idIntervalEnemies;
+let idIntervalFish;
 
 /*-------------------------------Random generator function--------------------------------*/
-function randomNumbers(timer, positionX, positionY) {
+function randomNumbers(timer, endPosition, initPosition) {
     const randomNum = Math.floor(Math.random() * timer);
-    const randPositionY = Math.floor(Math.random() * (positionX - positionY) + positionY);
+    const randPositionY = Math.floor(Math.random() * (endPosition - initPosition) + initPosition);
     return {
         random: randomNum,
         posY: randPositionY
@@ -23,17 +30,17 @@ function randomNumbers(timer, positionX, positionY) {
 /*-------------------------------Start button behavior--------------------------------*/
 function startGame() {
     const btnStart = document.querySelectorAll(".intro");
-    btnStart.forEach(element => element.classList.add("noShow"));
-    canvas.classList.remove("noShow");
+    btnStart.forEach(element => element.classList.add("displayNo"));
+    canvas.classList.remove("displayNo");
 
     updateScenario();
     keyBehavior();
 
     /*-------------Set how often the function to create enemies will be called--------*/
-    setInterval(() => {
+    idIntervalEnemies = setInterval(() => {
         createEnemies();
     }, 5000);
-    setInterval(() => {
+    idIntervalFish = setInterval(() => {
         createFish();
     }, 7000);
 }
@@ -48,16 +55,20 @@ function updateScenario() {
 
     callEnemies();
     callFish();
+    shootBubbles();
 
     showData(orca.life, orca.x, orca.y, orca.sink, orca.bubbles);
     idFrame = requestAnimationFrame(updateScenario);
 
     if (!orca.isAlive()) {
-        alert("You died! ☠");
         cancelAnimationFrame(idFrame);
         const endScreen = document.querySelector(".end-game");
-        endScreen.classList.remove("noShow");
-        canvas.classList.add("noShow");
+        clearInterval(idIntervalEnemies);
+        clearInterval(idIntervalFish);
+        setTimeout(() => {
+            endScreen.classList.remove("displayNo");
+            canvas.classList.add("displayNo");
+        }, 3000);
     }
 }
 
@@ -72,5 +83,4 @@ function showData(life, x, y, k, b) {
     ctx.font = "22px Arial";
     ctx.fillText(`X: ${x},Y: ${y}`, 1850,35);
 }
-
 

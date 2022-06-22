@@ -15,11 +15,11 @@ class Orca extends Character {
     }
 
     jump() {
-        this.y -= 80;
+        this.y -= 60;
     }
 
     goDown() {
-        this.y += 80;
+        this.y += 60;
     }
 
     getDamage(damage) {
@@ -27,6 +27,10 @@ class Orca extends Character {
     }
     getBubbles(bubbles) {
         this.bubbles += bubbles;
+    }
+    shoot(x, y, image) {
+        const createdBubble = new Bubble(x, y, image, ctx);
+        return createdBubble;
     }
 
     isAlive() {
