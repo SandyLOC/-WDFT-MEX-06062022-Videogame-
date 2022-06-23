@@ -12,20 +12,15 @@ orcaLeft.src = "../images/orcaLeft.png";
 
 const orcaJumpR = new Image();
 orcaJumpR.src = "../images/orcaJumpR.png";
+
+const orcaJumpL = new Image();
+orcaJumpL.src = "../images/orcaJumpL.png";
 /*-------------------------------Frame ID variable declaration--------------------------------*/
 let idFrame;
 let idIntervalEnemies;
 let idIntervalFish;
-
-/*-------------------------------Random generator function--------------------------------*/
-function randomNumbers(timer, endPosition, initPosition) {
-    const randomNum = Math.floor(Math.random() * timer);
-    const randPositionY = Math.floor(Math.random() * (endPosition - initPosition) + initPosition);
-    return {
-        random: randomNum,
-        posY: randPositionY
-    }
-}
+let canvasHeight = 1200;
+let canvasWidth = 2000;
 
 /*-------------------------------Start button behavior--------------------------------*/
 function startGame() {
@@ -74,13 +69,13 @@ function updateScenario() {
 
 /*-------------------------------Data text--------------------------------*/
 function showData(life, x, y, k, b) {
-    ctx.font = "40px Arial";
-    ctx.fillText(life, 1000, 40);
-    ctx.font = "22px Arial";
-    ctx.fillText(`Remaining Bubbles: ${b}`, 30, 35);
-    ctx.font = "22px Arial";
-    ctx.fillText(`Boats sunken: ${k}`, 30, 60);
-    ctx.font = "22px Arial";
-    ctx.fillText(`X: ${x},Y: ${y}`, 1850,35);
+    ctx.font = "50px Arial";
+    ctx.fillText(life, 1000, 60);
+    ctx.font = "28px Arial";
+    ctx.fillText(`Remaining Bubbles: ${b}`, 30, 40);
+    ctx.font = "28px Arial";
+    ctx.fillText(`Boats sunken: ${k}`, 30, 80);
+    ctx.font = "28px Arial";
+    ctx.fillText(`X: ${x},Y: ${y}`, 1820,40);
 }
 

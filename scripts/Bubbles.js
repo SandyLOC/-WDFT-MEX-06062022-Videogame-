@@ -22,10 +22,12 @@ function shootBubbles() {
         bubble.draw();
 
         enemies.forEach((enemy, indexEnemy) => {
-            if (enemy.x === bubble.x || enemy.x === bubble.x + 1 || enemy.x === bubble.x - 1) {
+            if (collision(enemy, bubble, 60)) {
                 enemies.splice(indexEnemy, 1);
                 bubbles.splice(indexBubble, 1);
-                orca.kills++;
+                if (enemy.name  !== false) {
+                orca.sink++;
+                }
             }
         })
     });

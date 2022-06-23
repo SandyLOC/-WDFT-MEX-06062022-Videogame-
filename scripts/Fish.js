@@ -42,7 +42,6 @@ function createFish() {
     }
         const fish = new Fish(x, randomNum.posY, fishObj.fishx, fishObj.fishy, ctx, fishObj.fishType);
         fishes.push(fish);
-        console.log(fishes);
 }
 
 /*-------------------------------Drawing Fish--------------------------------*/
@@ -51,7 +50,7 @@ function callFish() {
 fishes.forEach((fish, index) => {
     fish.x -= 4;
     fish.draw();
-    if (collision(fish, 60)) {
+    if (collision(orca, fish, 60)) {
         orca.getBubbles(fishObj.fishPower);
         fishes.splice(index, 1);
     }
