@@ -13,10 +13,16 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="intro">FREE WH<span>A</span>LY</h1>
-        <div class="run"></div>
-        <button class="intro" id="start" onclick="startGame()">Start Game</button>
+        <div class = "intro">
+            <h1>FREE WH<span>A</span>LY</h1>
+            <div class="run"></div>
+            <button id="start" onclick="startGame()">Start Game</button>
+            <img src="./images/keys.png" alt="">
+        </div>
         <canvas id="canvas" width="2000" height="1200" class="displayNo"></canvas>
+        <div class="win-game displayNo">YOU WON!
+            <img src='./images/victory1.png' alt="sad game over"/>
+        </div>
         <div class="end-game displayNo">GAME OVER! ☠
             <img src='./images/sad-trapped.png' alt="sad game over"/>
         </div>
@@ -30,5 +36,6 @@
     <script src="./scripts/Fish.js"></script>
     <script src="./scripts/Bubbles.js"></script>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/friendRescue.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ const toxicSpill = new Image();
 toxicSpill.src = "../images/oil.png";
 
 const netImage = new Image();
-netImage.src = "../images/toxic.png";
+netImage.src = "../images/net.png";
 
 /*-------------------------------Random creation of enemies--------------------------------*/
 const enemies = [];

@@ -28,6 +28,11 @@ function shootBubbles() {
                 if (enemy.name  !== false) {
                 orca.sink++;
                 }
+                if (orca.sink >= 5) {
+                    const winScreen = document.querySelector(".win-game");
+                        winScreen.classList.remove("displayNo");
+                        canvas.classList.add("displayNo");
+                }
             }
         })
     });

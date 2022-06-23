@@ -19,11 +19,53 @@ body{
 
 .container{
     width: 100vw;
-    height: 95vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.intro {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+.intro img {
+    margin-top: 150px;
+}
+
+#start{
+    margin-top: 180px;
+    padding:20px;
+    background-color: var(--water-blue);
+    font-size: 80px;
+    color: #fff;
+    border-radius: 15px;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+#start:hover{
+    background-color: white;
+    border: 1px solid var(--water-blue);
+    color: var(--water-blue);
+}
+
+.win-game {
+    width: 50vw;
+    height: 55vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: rgb(239, 241, 248);
+    font-size: 100px;
+    -webkit-text-stroke: 2px rgb(9, 10, 10);
+    background-color: rgba(140,214,233, 0.9);
+    border: 1px solid black;
+}
+.win-game img {
+    width: 1000px;
+    height: 700px;
 }
 .end-game{
     width: 50vw;
@@ -50,22 +92,6 @@ h1 {
 
 span {
     color: white;
-}
-#start{
-    margin-top: 300px;
-    padding:20px;
-    background-color: var(--water-blue);
-    font-size: 80px;
-    color: #fff;
-    border-radius: 15px;
-    border: 1px solid #fff;
-    cursor: pointer;
-}
-
-#start:hover{
-    background-color: white;
-    border: 1px solid var(--water-blue);
-    color: var(--water-blue);
 }
 
 canvas{

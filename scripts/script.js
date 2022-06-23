@@ -2,10 +2,26 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+/*-------------------------------Background variable--------------------------------*/
+const background = new Image();
+background.src = "../images/scenario.png";
 /*-------------------------------Orca creation--------------------------------*/
 const characterOrca = new Image();
 characterOrca.src = "../images/orca.png";
 const orca = new Orca(10,300, 250, 150, ctx, characterOrca);
+
+//draw() {
+//    ctx.drawImage(img, 0, 0, 500, 700);
+//    if (this.x >= 450) {
+//      this.x = 450;
+//    } else if (this.x <= 0) {
+//      this.x = 0;
+//    } else { 
+//      this.x = this.x;
+//    }
+//      ctx.drawImage(this.car, this.x, 560, 50, 100);
+//      this.obstacles();
+//  }
 
 const orcaLeft = new Image();
 orcaLeft.src = "../images/orcaLeft.png";
@@ -42,10 +58,11 @@ function startGame() {
 /*-------------------------------Scenario update every frame--------------------------------*/
 function updateScenario() {
     ctx.clearRect(0, 0, 2000, 1200);
-    backgroundImage.draw();
+
+    backgroundImage.draw(background);
     backgroundImage.move();
 
-    /*------------------Draw the orca and the enemies---------------------*/
+    /*------------------Draw the orca and the enemies---------------endScreenend-game------*/
     orca.draw();
 
     callEnemies();
@@ -61,8 +78,11 @@ function updateScenario() {
         clearInterval(idIntervalEnemies);
         clearInterval(idIntervalFish);
         setTimeout(() => {
-            endScreen.classList.remove("displayNo");
+        if (orca.sink < 5) {
+           endScreen.classList.remove("displayNo");
+        }
             canvas.classList.add("displayNo");
+        //screenRescue();
         }, 3000);
     }
 }
