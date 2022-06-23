@@ -1,4 +1,3 @@
-//const data = require("./data.js");
 class Enemy extends Character {
     constructor(x, y, sizex, sizey, ctx, image, name) {
         super(x, y, sizex, sizey, ctx, image);
