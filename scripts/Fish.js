@@ -6,10 +6,10 @@ class Fish extends Character {
 
 /*-------------------------------Fish images--------------------------------*/
 const fishBalloon = new Image();
-fishBalloon.src = "../images/balloonFish.png";
+fishBalloon.src = "images/balloonFish.png";
 
 const fishTuna = new Image();
-fishTuna.src = "../images/tuna.png";
+fishTuna.src = "images/tuna.png";
 /*-------------------------------Random creation of fish--------------------------------*/
 const fishes = [];
 

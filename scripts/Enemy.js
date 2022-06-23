@@ -8,13 +8,13 @@ class Enemy extends Character {
 
 /*-------------------------------Enemies images--------------------------------*/
 const ship = new Image();
-ship.src = "../images/ship.png";
+ship.src = "images/ship.png";
 
 const toxicSpill = new Image();
-toxicSpill.src = "../images/oil.png";
+toxicSpill.src = "images/oil.png";
 
 const netImage = new Image();
-netImage.src = "../images/net.png";
+netImage.src = "images/net.png";
 
 /*-------------------------------Random creation of enemies--------------------------------*/
 const enemies = [];

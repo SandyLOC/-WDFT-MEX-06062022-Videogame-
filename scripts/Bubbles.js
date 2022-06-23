@@ -12,7 +12,7 @@ class Bubble {
 }
 /*-------------------------------Bubble images--------------------------------*/
 const bubbleImage = new Image();
-bubbleImage.src = "../images/bubbles.gif";
+bubbleImage.src = "images/bubbles.gif";
 
 const bubbles = [];
 

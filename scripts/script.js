@@ -4,10 +4,10 @@ const ctx = canvas.getContext("2d");
 
 /*-------------------------------Background variable--------------------------------*/
 const background = new Image();
-background.src = "../images/scenario.png";
+background.src = "images/scenario.png";
 /*-------------------------------Orca creation--------------------------------*/
 const characterOrca = new Image();
-characterOrca.src = "../images/orca.png";
+characterOrca.src = "images/orca.png";
 const orca = new Orca(10,300, 250, 150, ctx, characterOrca);
 
 //draw() {
@@ -24,13 +24,13 @@ const orca = new Orca(10,300, 250, 150, ctx, characterOrca);
 //  }
 
 const orcaLeft = new Image();
-orcaLeft.src = "../images/orcaLeft.png";
+orcaLeft.src = "images/orcaLeft.png";
 
 const orcaJumpR = new Image();
-orcaJumpR.src = "../images/orcaJumpR.png";
+orcaJumpR.src = "images/orcaJumpR.png";
 
 const orcaJumpL = new Image();
-orcaJumpL.src = "../images/orcaJumpL.png";
+orcaJumpL.src = "images/orcaJumpL.png";
 /*-------------------------------Frame ID variable declaration--------------------------------*/
 let idFrame;
 let idIntervalEnemies;

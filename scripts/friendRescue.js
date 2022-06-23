@@ -1,12 +1,12 @@
 
 const rescueBackground = new Image();
-rescueBackground.src = "../images/ocean_floor_rescue.png";
+rescueBackground.src = "images/ocean_floor_rescue.png";
 
 const friendOrca = new Image();
-friendOrca.src = "../images/orcaLeft.png";
+friendOrca.src = "images/orcaLeft.png";
 
 const cageClosed = new Image();
-cageClosed.src = "../images/cageClosed.png";
+cageClosed.src = "images/cageClosed.png";
 
 const friend = new Orca(1550,500, 200, 110, ctx, friendOrca);
 const cage = new Orca(1350,200, 500, 950, ctx, cageClosed);
