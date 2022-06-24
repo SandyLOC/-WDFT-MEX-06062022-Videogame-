@@ -38,8 +38,9 @@ h1 {
 h2 {
     font-size: 70px;
     color: black;
+    margin: 50px;
 }
-span {
+h1 > span {
     color: white;
 }
 button{
