@@ -73,6 +73,7 @@ function updateScenario() {
         }, 3000);
     }
     if (orca.sink >= 5) {
+        nets =[];
         clearIntervals();
         screenRescue();
         //const winScreen = document.querySelector(".win-game");
