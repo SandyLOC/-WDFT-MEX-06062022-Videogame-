@@ -30,11 +30,19 @@ body{
     align-items: center;
     justify-content: center;
 }
-.intro img {
-    margin-top: 150px;
-}
 
-#start{
+h1 {
+    font-size: 100px;
+    color: rgb(1, 1, 7);
+}
+h2 {
+    font-size: 70px;
+    color: black;
+}
+span {
+    color: white;
+}
+button{
     margin-top: 180px;
     padding:20px;
     background-color: var(--water-blue);
@@ -45,12 +53,26 @@ body{
     cursor: pointer;
 }
 
-#start:hover{
+button:hover{
     background-color: white;
     border: 1px solid var(--water-blue);
     color: var(--water-blue);
 }
+span > h2 {
+margin: 150px auto 50px;
+}
+.keys {
+    display: flex;
+    align-items:center;
 
+}
+.arrows {
+    width: 300px;
+}
+.space {
+    width: 400px;
+    margin-left: 150px;
+}
 .win-game {
     width: 50vw;
     height: 55vh;
@@ -83,15 +105,6 @@ body{
 .end-game img {
     width: 900px;
     height: 800px;
-}
-
-h1 {
-    font-size: 100px;
-    color: rgb(1, 1, 7);
-}
-
-span {
-    color: white;
 }
 
 canvas{

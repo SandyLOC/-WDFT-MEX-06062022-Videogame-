@@ -10,19 +10,6 @@ const characterOrca = new Image();
 characterOrca.src = "images/orca.png";
 const orca = new Orca(10,300, 250, 150, ctx, characterOrca);
 
-//draw() {
-//    ctx.drawImage(img, 0, 0, 500, 700);
-//    if (this.x >= 450) {
-//      this.x = 450;
-//    } else if (this.x <= 0) {
-//      this.x = 0;
-//    } else { 
-//      this.x = this.x;
-//    }
-//      ctx.drawImage(this.car, this.x, 560, 50, 100);
-//      this.obstacles();
-//  }
-
 const orcaLeft = new Image();
 orcaLeft.src = "images/orcaLeft.png";
 
@@ -73,20 +60,33 @@ function updateScenario() {
     idFrame = requestAnimationFrame(updateScenario);
 
     if (!orca.isAlive()) {
-        cancelAnimationFrame(idFrame);
+
+        clearIntervals();
+
         const endScreen = document.querySelector(".end-game");
-        clearInterval(idIntervalEnemies);
-        clearInterval(idIntervalFish);
+
         setTimeout(() => {
         if (orca.sink < 5) {
            endScreen.classList.remove("displayNo");
         }
             canvas.classList.add("displayNo");
-        //screenRescue();
         }, 3000);
     }
-}
+    if (orca.sink >= 5) {
+        clearIntervals();
+        screenRescue();
+        //const winScreen = document.querySelector(".win-game");
+        //    winScreen.classList.remove("displayNo");
+        //    canvas.classList.add("displayNo");
+    }
 
+}
+function clearIntervals() {
+    cancelAnimationFrame(idFrame);
+    clearInterval(idIntervalEnemies);
+    clearInterval(idIntervalFish);
+    clearInterval(idIntervalNet);
+}
 /*-------------------------------Data text--------------------------------*/
 function showData(life, x, y, k, b) {
     ctx.font = "50px Arial";

@@ -15,6 +15,7 @@ const bubbleImage = new Image();
 bubbleImage.src = "images/bubbles.gif";
 
 const bubbles = [];
+let hits = 0;
 
 function shootBubbles() {
     bubbles.forEach((bubble, indexBubble) => {
@@ -23,17 +24,20 @@ function shootBubbles() {
 
         enemies.forEach((enemy, indexEnemy) => {
             if (collision(enemy, bubble, 60)) {
+                enemy.nets.forEach((net) => {
+                nets.push(net)
+                });
+
                 enemies.splice(indexEnemy, 1);
+                
                 bubbles.splice(indexBubble, 1);
+                
                 if (enemy.name  !== false) {
                 orca.sink++;
                 }
-                if (orca.sink >= 5) {
-                    const winScreen = document.querySelector(".win-game");
-                        winScreen.classList.remove("displayNo");
-                        canvas.classList.add("displayNo");
-                }
+
             }
         })
+
     });
 }

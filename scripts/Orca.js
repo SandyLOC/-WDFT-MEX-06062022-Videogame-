@@ -7,19 +7,39 @@ class Orca extends Character {
     }
 
     moveFront() {
-        this.x += 60;
+        if (this.x <= 1700) {
+            this.x += 60;
+        } else {
+            this.x = this.x
+        }
+
     }
 
     moveBack() {
-        this.x -= 60;
+        if (this.x >= 60) {
+            this.x -= 60;
+        } else {
+            this.x = this.x
+        }
+
     }
 
     jump() {
-        this.y -= 60;
+        if (this.y >= 250) {
+            this.y -= 60;
+        } else {
+            this.y = this.y
+        }
+
     }
 
     goDown() {
-        this.y += 60;
+        if (this.y <= 1000) {
+            this.y += 60;
+        } else {
+            this.y = this.y
+        }
+
     }
 
     getDamage(damage) {
