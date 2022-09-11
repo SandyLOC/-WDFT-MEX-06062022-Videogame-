@@ -10,7 +10,6 @@ class Enemy extends Character {
             const randomNum = randomNumbers(20);
             if (randomNum.random % 3 === 0) {
                 const net = new Enemy(this.x, this.y + 200, 100, 100, ctx, netImage, this.name);
-                console.log(net);
                 this.nets.push(net);
             }
         }
@@ -70,7 +69,6 @@ function createEnemies() {
 /*-------------------------------Drawing enemies--------------------------------*/
 
 function callEnemies() {
-    console.log(enemies)
     enemies.forEach((enemy, index) => {
         enemy.x -= 2;
         enemy.draw();

@@ -77,7 +77,6 @@ function updateScenario() {
     if (orca.sink >= 2) {
         clearIntervals();
         stop = true;
-        //idFrame = requestAnimationFrame(updateRescueScenario);
         screenRescue();
         //const winScreen = document.querySelector(".win-game");
         //    winScreen.classList.remove("displayNo");
