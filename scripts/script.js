@@ -19,9 +19,11 @@ orcaJumpR.src = "images/orcaJumpR.png";
 const orcaJumpL = new Image();
 orcaJumpL.src = "images/orcaJumpL.png";
 /*-------------------------------Frame ID variable declaration--------------------------------*/
+let stop = false;
 let idFrame;
 let idIntervalEnemies;
 let idIntervalFish;
+let idIntervalNet;
 let canvasHeight = 1200;
 let canvasWidth = 2000;
 
@@ -72,9 +74,10 @@ function updateScenario() {
             canvas.classList.add("displayNo");
         }, 3000);
     }
-    if (orca.sink >= 5) {
-        nets =[];
+    if (orca.sink >= 2) {
         clearIntervals();
+        stop = true;
+        //idFrame = requestAnimationFrame(updateRescueScenario);
         screenRescue();
         //const winScreen = document.querySelector(".win-game");
         //    winScreen.classList.remove("displayNo");

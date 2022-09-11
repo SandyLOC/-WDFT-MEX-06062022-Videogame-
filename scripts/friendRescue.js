@@ -27,18 +27,14 @@ function screenRescue() {
 function updateRescueScenario() {
     ctx.clearRect(0, 0, 2000, 1200);
     backgroundImage.draw(rescueBackground);
-
     herOrca.draw();
     friend.draw();
     cage.draw();
-
     rescueData(orca.x, orca.y);
-
-    //idFrame = requestAnimationFrame(updateRescueScenario);
     setTimeout(() => {
         showRescue();
     }, 4000);
-    
+
 }
 
 function showRescue() {
@@ -46,17 +42,20 @@ function showRescue() {
     backgroundImage.draw(rescueBackground);
     herOrca.draw();
     friend.draw();
-    cage.draw();
+    //cage.draw();
     cageOp.draw();
     ctx.font = "bold 60px Arial";
     ctx.fillStyle = "white";
     ctx.fillText("Whaly is free now, thanks to you!", 110, 870);
+    if (friend.y < 600) friend.y += 2;
+    if (friend.x >= 600) friend.x -= 5;
+    
+    idFrame = requestAnimationFrame(showRescue);
+    if (friend.x === 600) cancelAnimationFrame(idFrame);
 }
 
 function rescueData(x, y, b) {
     ctx.font = "bold 60px Arial";
     ctx.fillStyle = "white";
     ctx.fillText("YOU WON!!!", 140, 870);
-    ctx.font = "28px Arial";
-    ctx.fillText(`X: ${x},Y: ${y}`, 1820,40);
 }

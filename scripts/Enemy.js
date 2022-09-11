@@ -6,12 +6,14 @@ class Enemy extends Character {
     }
     addNet() {
     /*-----------------------------Set random release of the nets----------------------*/
+        if (stop !== true){
             const randomNum = randomNumbers(20);
             if (randomNum.random % 3 === 0) {
                 const net = new Enemy(this.x, this.y + 200, 100, 100, ctx, netImage, this.name);
                 console.log(net);
                 this.nets.push(net);
             }
+        }
     }
 }
 
@@ -26,9 +28,8 @@ const netImage = new Image();
 netImage.src = "images/net.png";
 
 /*-------------------------------Random creation of enemies--------------------------------*/
-const enemies = [];
+let enemies = [];
 let nets = [];
-let idIntervalNet = 0;
 const enemyObj = {
     sizex: 0,
     sizey: 0,

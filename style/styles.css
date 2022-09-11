@@ -118,6 +118,26 @@ canvas{
     display: none;
 }
 
+.wrapper {
+    position: relative;
+    min-height: 1200vh;
+  }
+  
+  [class|="confetti"] {
+    position: absolute;
+  }
+  
+  .red {
+    background-color: #d13447;
+  }
+  
+  .yellow {
+    background-color: #ffbf00;
+  }
+  
+  .blue {
+    background-color: #263672;
+  }
 /*.run {
     position: absolute;
     top: 0%;
