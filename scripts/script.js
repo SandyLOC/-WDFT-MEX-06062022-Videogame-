@@ -1,7 +1,7 @@
-/*-------------------------------Canvas variable--------------------------------*/
+/*-------------------------------Selectors variable--------------------------------*/
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-
+const btnStart = document.querySelectorAll(".intro");
 /*-------------------------------Background variable--------------------------------*/
 const background = new Image();
 background.src = "images/scenario.png";
@@ -19,7 +19,7 @@ orcaJumpR.src = "images/orcaJumpR.png";
 const orcaJumpL = new Image();
 orcaJumpL.src = "images/orcaJumpL.png";
 /*-------------------------------Frame ID variable declaration--------------------------------*/
-let stop = false;
+let stop;
 let idFrame;
 let idIntervalEnemies;
 let idIntervalFish;
@@ -29,9 +29,10 @@ let canvasWidth = 2000;
 
 /*-------------------------------Start button behavior--------------------------------*/
 function startGame() {
-    const btnStart = document.querySelectorAll(".intro");
     btnStart.forEach(element => element.classList.add("displayNo"));
     canvas.classList.remove("displayNo");
+
+    stop = false;
 
     updateScenario();
     keyBehavior();
@@ -62,9 +63,7 @@ function updateScenario() {
     idFrame = requestAnimationFrame(updateScenario);
 
     if (!orca.isAlive()) {
-
         clearIntervals();
-
         const endScreen = document.querySelector(".end-game");
 
         setTimeout(() => {
@@ -74,13 +73,10 @@ function updateScenario() {
             canvas.classList.add("displayNo");
         }, 3000);
     }
-    if (orca.sink >= 2) {
+    if (orca.sink >= 1) {
         clearIntervals();
         stop = true;
         screenRescue();
-        //const winScreen = document.querySelector(".win-game");
-        //    winScreen.classList.remove("displayNo");
-        //    canvas.classList.add("displayNo");
     }
 
 }
@@ -101,4 +97,3 @@ function showData(life, x, y, k, b) {
     ctx.font = "28px Arial";
     ctx.fillText(`X: ${x},Y: ${y}`, 1820,40);
 }
-

@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class="container">
-        <div class = "intro">
+        <div class="intro">
             <h1>FREE WH<span>A</span>LY</h1>
             <div class="run"></div>
             <button id="start" onclick="startGame()">Start Game</button>
@@ -25,6 +25,10 @@
 
         </div>
         <canvas id="canvas" width="2000" height="1200" class="displayNo"></canvas>
+        <div class="again displayNo" id="restart">
+            <button onclick="restart()">Play Again</button>
+        </div>
+
         <div class="win-game displayNo">YOU WON!
             <img src='./images/victory1.png' alt="sad game over"/>
         </div>

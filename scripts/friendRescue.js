@@ -1,4 +1,3 @@
-
 const rescueBackground = new Image();
 rescueBackground.src = "images/ocean_floor_rescue.png";
 
@@ -18,6 +17,9 @@ const cageOpen = new Image();
 cageOpen.src = "images/cageOpen.png";
 const cageOp = new Cage(1120,200, 730, 950, cageOpen, ctx);
 
+let rescueFrame;
+let idTimeout;
+
 function screenRescue() {
 
     updateRescueScenario();
@@ -26,36 +28,50 @@ function screenRescue() {
 
 function updateRescueScenario() {
     ctx.clearRect(0, 0, 2000, 1200);
+
     backgroundImage.draw(rescueBackground);
     herOrca.draw();
     friend.draw();
     cage.draw();
+
     rescueData(orca.x, orca.y);
-    setTimeout(() => {
+    idTimeout = setTimeout(() => {
         showRescue();
-    }, 4000);
+    }, 3000);
 
 }
 
 function showRescue() {
     ctx.clearRect(0, 0, 2000, 1200);
+
     backgroundImage.draw(rescueBackground);
     herOrca.draw();
     friend.draw();
-    //cage.draw();
     cageOp.draw();
+
     ctx.font = "bold 60px Arial";
     ctx.fillStyle = "white";
     ctx.fillText("Whaly is free now, thanks to you!", 110, 870);
+
     if (friend.y < 600) friend.y += 2;
-    if (friend.x >= 600) friend.x -= 5;
-    
-    idFrame = requestAnimationFrame(showRescue);
-    if (friend.x === 600) cancelAnimationFrame(idFrame);
+    if (friend.x > 600) friend.x -= 10;
+
+    if (friend.x <= 600){
+        cancelAnimationFrame(rescueFrame);
+        clearTimeout(idTimeout)
+        const restartButton = document.getElementById("restart");
+        restartButton.classList.remove("displayNo");
+    }
+
+    rescueFrame = requestAnimationFrame(showRescue);
 }
 
 function rescueData(x, y, b) {
     ctx.font = "bold 60px Arial";
     ctx.fillStyle = "white";
     ctx.fillText("YOU WON!!!", 140, 870);
+}
+/*-------------------------------Restart Game--------------------------------*/
+function restart() {
+    window.location.reload(true);
 }

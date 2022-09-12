@@ -30,7 +30,10 @@ body{
     align-items: center;
     justify-content: center;
 }
-
+.again{
+    position: absolute;
+    display: flex;
+}
 h1 {
     font-size: 100px;
     color: rgb(1, 1, 7);
@@ -118,26 +121,6 @@ canvas{
     display: none;
 }
 
-.wrapper {
-    position: relative;
-    min-height: 1200vh;
-  }
-  
-  [class|="confetti"] {
-    position: absolute;
-  }
-  
-  .red {
-    background-color: #d13447;
-  }
-  
-  .yellow {
-    background-color: #ffbf00;
-  }
-  
-  .blue {
-    background-color: #263672;
-  }
 /*.run {
     position: absolute;
     top: 0%;
