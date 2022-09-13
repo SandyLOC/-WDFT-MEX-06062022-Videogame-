@@ -13,29 +13,67 @@
 </head>
 <body>
     <div class="container">
-        <div class="intro">
-            <h1>FREE WH<span>A</span>LY</h1>
-            <div class="run"></div>
-            <button id="start" onclick="startGame()">Start Game</button>
-            <h2><pre>Move                                          Shoot</pre></h2>
+        <div class="controls boards" id="controls">
+
+            <div class="moves">
+                <h2>Move</h2>
+                <h2>Shoot</h2>
+            </div>
+
             <div class="keys">
                 <img class="arrows" src="./images/keys.png" alt="">
                 <img class="space" src="./images/space.png" alt="">
             </div>
-
         </div>
+        <!-------------------------------Intro window-------------------------------->
+        <div class="intro">
+            <h1>FREE WH<span>A</span>LY</h1>
+            <button id="start" onclick="startGame()">Start Game</button>
+
+            <div class="buttons">
+                <button type="button" class="collapsible controlsButton" onclick='collapse("controls")'>Controls</button>
+                <button type="button" class="collapsible" onclick='collapse("instructions")'>Instructions</button>
+            </div>
+
+            <h3 class="credit">Coded by <a href="https://github.com/SandyLOC">Sandra Lopez</a> - 2022</h3>
+        </div>
+
+
+            <div class="instructions boards" id="instructions">
+                <p>Help Orcale (your character) rescue her friend Whaly who has been captured by a whaleship.</p>
+                <div class="run"></div>
+                <p>To get to Whaly's prison Orcale has to survive many dangers, dodge oil barrels and whaler's nets
+                    and, to be able to escape capture, she has to use her bubbles to sink 5 evil whalerships.
+                    But, use them wisely, only one bubble can be shot at a time.
+                </p>
+                <div class="characters">
+                    <img src="./images/oil.png" alt="oil">
+                    <img src="./images/net.png" alt="net">
+
+                </div>
+                <p>To replenish her bubbles she has to catch fish.</p>
+                <div class="characters">
+                    <img src="./images/bubbles.gif" alt="bubbles">
+                    <img src="./images/balloonFish.png" alt="ballfish">
+
+                </div>
+            </div>
+
+        <!-------------------------------Canvas game components-------------------------------->
         <canvas id="canvas" width="2000" height="1200" class="displayNo"></canvas>
         <div class="again displayNo" id="restart">
             <button onclick="restart()">Play Again</button>
         </div>
-
+        <!-------------------------------Win/Loose Modals-------------------------------->
         <div class="win-game displayNo">YOU WON!
             <img src='./images/victory1.png' alt="sad game over"/>
         </div>
         <div class="end-game displayNo">GAME OVER! ☠
             <img src='./images/sad-trapped.png' alt="sad game over"/>
         </div>
+        
     </div>
+    <!-------------------------------Scripts-------------------------------->
     <script src="./scripts/background.js"></script>
     <script src="./scripts/operationFunctions.js"></script>
     <script src="./scripts/Character.js"></script>
@@ -47,5 +85,19 @@
     <script src="./scripts/Cage.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/friendRescue.js"></script>
+    <!-------------------------------Instructions Modal-------------------------------->
+    <script>
+
+        function collapse(idName){
+            const content = document.getElementById(idName);
+
+            if (content.style.visibility === "visible") {
+              content.style.visibility = "hidden";
+            } else {
+              content.style.visibility = "visible";
+            }
+        }
+
+    </script>
 </body>
 </html>
