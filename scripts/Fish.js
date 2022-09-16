@@ -14,8 +14,8 @@ fishTuna.src = "images/tuna.png";
 const fishes = [];
 
 const fishObj = {
-    fishx: 60,
-    fishy: 60,
+    fishx: 36,
+    fishy: 36,
     fishType: fishBalloon,
     fishPower: 0,
     balloon: false
@@ -23,19 +23,19 @@ const fishObj = {
 
 function createFish() {
 
-    const randomNum = randomNumbers(22, 1000, 300);
+    const randomNum = randomNumbers(22, 600, 180);
 
-    let x = 1900;
+    let x = 1140;
 
     if (fishObj.balloon === false) {
-        fishObj.fishx = 60;
-        fishObj.fishy = 60;
+        fishObj.fishx = 36;
+        fishObj.fishy = 36;
         fishObj.fishType = fishBalloon;
         fishObj.fishPower = 2;
         fishObj.balloon = true;
     } else {
-        fishObj.fishx = 70;
-        fishObj.fishy = 50;
+        fishObj.fishx = 42;
+        fishObj.fishy = 30;
         fishObj.fishType = fishTuna;
         fishObj.fishPower = 1;
         fishObj.balloon = false;
@@ -50,7 +50,7 @@ function callFish() {
 fishes.forEach((fish, index) => {
     fish.x -= 4;
     fish.draw();
-    if (collision(orca, fish, 60)) {
+    if (collision(orca, fish, 36)) {
         orca.getBubbles(fishObj.fishPower);
         fishes.splice(index, 1);
     }

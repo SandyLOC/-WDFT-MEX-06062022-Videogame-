@@ -7,7 +7,7 @@ class Bubble {
     }
 
     draw() {
-        this.ctx.drawImage(this.img, this.x + 100, this.y, 60, 60);
+        this.ctx.drawImage(this.img, this.x + 60, this.y, 36, 36);
     }
 }
 /*-------------------------------Bubble images--------------------------------*/
@@ -18,12 +18,14 @@ const bubbles = [];
 let hits = 0;
 
 function shootBubbles() {
+
     bubbles.forEach((bubble, indexBubble) => {
-        bubble.x += 2;
+        bubble.x += 4;
         bubble.draw();
 
         enemies.forEach((enemy, indexEnemy) => {
-            if (collision(enemy, bubble, 60)) {
+        //This segment allows nets to continue path when a bubble sinks a boat.
+            if (collision(enemy, bubble, 36)) {
                 enemy.nets.forEach((net) => {
                 nets.push(net)
                 });
@@ -40,4 +42,5 @@ function shootBubbles() {
         })
 
     });
+
 }

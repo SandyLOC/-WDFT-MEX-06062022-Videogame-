@@ -9,7 +9,7 @@ class Enemy extends Character {
         if (stop !== true){
             const randomNum = randomNumbers(20);
             if (randomNum.random % 3 === 0) {
-                const net = new Enemy(this.x, this.y + 200, 100, 100, ctx, netImage, this.name);
+                const net = new Enemy(this.x, this.y + 120, 60, 60, ctx, netImage, this.name);
                 this.nets.push(net);
             }
         }
@@ -38,22 +38,22 @@ const enemyObj = {
 }
 let identifier;
 function createEnemies() {
-    const randomNum = randomNumbers(40, 1000, 280);
+    const randomNum = randomNumbers(40, 600, 168);
     if (randomNum.random % 2 === 0) {
         enemyObj.enemyType = ship;
         identifier += 1;
-        x = 1800;
-        y = 200;
-        enemyObj.sizex = 300;
-        enemyObj.sizey = 250;
+        x = 1080;
+        y = 130;
+        enemyObj.sizex = 180;
+        enemyObj.sizey = 150;
     }
     if (randomNum.random % 3 === 0) {
         enemyObj.enemyType = toxicSpill;
         identifier = false;
-        x = 1800;
+        x = 1080;
         y = randomNum.posY;
-        enemyObj.sizex = 200;
-        enemyObj.sizey = 200;
+        enemyObj.sizex = 120;
+        enemyObj.sizey = 120;
     }
         const enemy = new Enemy(x, y, enemyObj.sizex, enemyObj.sizey, ctx, enemyObj.enemyType, identifier);
         if (enemyObj.enemyType === ship) {
@@ -73,12 +73,11 @@ function callEnemies() {
         enemy.x -= 2;
         enemy.draw();
 
-        if (collision(orca, enemy , 180)) {
+        if (collision(orca, enemy , enemy.sizey)) {
             orca.getDamage(20);
-            orca.sink++;
-
             enemies.splice(index, 1);
-        } else if (enemy.y > canvasHeight || enemy.x < -300) {
+            
+        } else if (enemy.y > canvasHeight || enemy.x < -180) {
             enemies.splice(index, 1);
         }
         enemy.nets.forEach((net, index) => {
@@ -86,7 +85,7 @@ function callEnemies() {
             net.x -= 1;
             net.draw();
 
-            if (collision(orca, net, 100)) {
+            if (collision(orca, net, 60)) {
                 orca.getDamage(20);
                 enemy.nets.splice(index, 1);
 
@@ -100,7 +99,7 @@ function callEnemies() {
         net.x -= 1;
         net.draw();
 
-        if (collision(orca, net, 100)) {
+        if (collision(orca, net, 60)) {
             orca.getDamage(20);
             nets.splice(index, 1);
 

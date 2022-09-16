@@ -13,6 +13,7 @@
 </head>
 <body>
     <div class="container">
+        <div class="intro">
         <div class="controls boards" id="controls">
 
             <div class="moves">
@@ -26,7 +27,7 @@
             </div>
         </div>
         <!-------------------------------Intro window-------------------------------->
-        <div class="intro">
+        <div class="menu">
             <h1>FREE WH<span>A</span>LY</h1>
             <button id="start" onclick="startGame()">Start Game</button>
 
@@ -58,9 +59,9 @@
 
                 </div>
             </div>
-
+        </div>
         <!-------------------------------Canvas game components-------------------------------->
-        <canvas id="canvas" width="2000" height="1200" class="displayNo"></canvas>
+        <canvas id="canvas" width="1200" height="720" class="displayNo"></canvas>
         <div class="again displayNo" id="restart">
             <button onclick="restart()">Play Again</button>
         </div>

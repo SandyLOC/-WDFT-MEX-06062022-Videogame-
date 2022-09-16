@@ -1,14 +1,12 @@
 :root{
     --water-blue: #68ceed
 }
-
 *{
     padding: 0;
     margin: 0;
     font-family: 'Ranchers', cursive;
     box-sizing: border-box;
 }
-
 body{
     background-image: url("https://78.media.tumblr.com/5290f8bc770ff92d6e64f978484e2a0d/tumblr_ojgoc9jPtX1tqfxrto1_500.gif");
     background-size: cover;
@@ -17,14 +15,14 @@ body{
     height: 100vh;
 }
 
-.container{
+.container, .intro{
     width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.intro {
+.menu {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,6 +46,7 @@ h2 {
 }
 .moves{
     display: flex;
+    margin: 1em auto;
 }
 button{
     margin-top: 2em;
@@ -59,7 +58,6 @@ button{
     border: 1px solid #fff;
     cursor: pointer;
 }
-
 button:hover{
     background-color: white;
     border: 1px solid var(--water-blue);
@@ -103,15 +101,13 @@ a:visited {
     background-color: rgba(140,214,233, 0.9);
     border: 1px solid black;
 }
-.win-game img {
-    width: 1000px;
-    height: 700px;
-}
+
 .end-game{
-    width: 50vw;
-    height: 55vh;
+    width: 60vw;
+    height: 75vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     color: rgb(239, 241, 248);
     font-size: 80px;
@@ -119,14 +115,11 @@ a:visited {
     background-color: rgba(140,214,233, 0.9);
     border: 1px solid black;
 }
-
 .end-game img {
-    width: 900px;
-    height: 800px;
+    width: 40vw;
+    height: 60vh;
 }
-
 canvas{
-    margin-top: 100px;
     border: 1px solid white;
     background-color: rgba(0,0,0,0.2);
 }
@@ -134,9 +127,8 @@ canvas{
 .displayNo{
     display: none;
 }
-
-.boards{ 
-    padding: 2em;
+.boards{
+    padding: 1em 2em;
     overflow: hidden;
     background-color: #ffffffda;
     border: 1px solid rgba(140,214,233, 0.9);
@@ -163,7 +155,7 @@ canvas{
 }
 .instructions img{
     max-width: 3em;
-    margin: 2em 3em;
+    margin: 1em 3em;
 }
 .characters{
     display: flex;

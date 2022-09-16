@@ -3,19 +3,19 @@ rescueBackground.src = "images/ocean_floor_rescue.png";
 
 const orcaHero = new Image();
 orcaHero.src = "images/orca.png";
-const herOrca = new Orca(120,520, 250, 150, ctx, orcaHero);
+const herOrca = new Orca(72,312, 150, 90, ctx, orcaHero);
 
 const friendOrca = new Image();
 friendOrca.src = "images/orcaLeft.png";
-const friend = new Orca(1550,500, 200, 110, ctx, friendOrca);
+const friend = new Orca(930,300, 120, 66, ctx, friendOrca);
 
 const cageClosed = new Image();
 cageClosed.src = "images/cageClosed.png";
-const cage = new Cage(1350,200, 500, 950, cageClosed, ctx);
+const cage = new Cage(810,120, 300, 570, cageClosed, ctx);
 
 const cageOpen = new Image();
 cageOpen.src = "images/cageOpen.png";
-const cageOp = new Cage(1120,200, 730, 950, cageOpen, ctx);
+const cageOp = new Cage(672,120, 438, 570, cageOpen, ctx);
 
 let rescueFrame;
 let idTimeout;
@@ -27,7 +27,7 @@ function screenRescue() {
 }
 
 function updateRescueScenario() {
-    ctx.clearRect(0, 0, 2000, 1200);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
     backgroundImage.draw(rescueBackground);
     herOrca.draw();
@@ -42,24 +42,23 @@ function updateRescueScenario() {
 }
 
 function showRescue() {
-    ctx.clearRect(0, 0, 2000, 1200);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
     backgroundImage.draw(rescueBackground);
     herOrca.draw();
     friend.draw();
     cageOp.draw();
 
-    ctx.font = "bold 60px Arial";
+    ctx.font = "bold 40px Arial";
     ctx.fillStyle = "white";
-    ctx.fillText("Whaly is free now, thanks to you!", 110, 870);
+    ctx.fillText("Whaly is free now, thanks to you!", 66, 522);
 
-    if (friend.y < 600) friend.y += 2;
-    if (friend.x > 600) friend.x -= 10;
+    if (friend.y < 360) friend.y += 2;
+    if (friend.x > 360) friend.x -= 10;
 
-    if (friend.x <= 600){
+    if (friend.x <= 360){
         cancelAnimationFrame(rescueFrame);
         clearTimeout(idTimeout)
-        const restartButton = document.getElementById("restart");
         restartButton.classList.remove("displayNo");
     }
 
@@ -67,9 +66,9 @@ function showRescue() {
 }
 
 function rescueData(x, y, b) {
-    ctx.font = "bold 60px Arial";
+    ctx.font = "bold 40px Arial";
     ctx.fillStyle = "white";
-    ctx.fillText("YOU WON!!!", 140, 870);
+    ctx.fillText("YOU WON!!!", 84, 522);
 }
 /*-------------------------------Restart Game--------------------------------*/
 function restart() {

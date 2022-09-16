@@ -2,13 +2,14 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 const btnStart = document.querySelectorAll(".intro");
+const restartButton = document.getElementById("restart");
 /*-------------------------------Background variable--------------------------------*/
 const background = new Image();
 background.src = "images/scenario.png";
 /*-------------------------------Orca creation--------------------------------*/
 const characterOrca = new Image();
 characterOrca.src = "images/orca.png";
-const orca = new Orca(10,300, 250, 150, ctx, characterOrca);
+const orca = new Orca(6,180, 150, 90, ctx, characterOrca);
 
 const orcaLeft = new Image();
 orcaLeft.src = "images/orcaLeft.png";
@@ -24,8 +25,8 @@ let idFrame;
 let idIntervalEnemies;
 let idIntervalFish;
 let idIntervalNet;
-let canvasHeight = 1200;
-let canvasWidth = 2000;
+let canvasHeight = 720;
+let canvasWidth = 1200;
 
 /*-------------------------------Start button behavior--------------------------------*/
 function startGame() {
@@ -47,7 +48,7 @@ function startGame() {
 }
 /*-------------------------------Scenario update every frame--------------------------------*/
 function updateScenario() {
-    ctx.clearRect(0, 0, 2000, 1200);
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
     backgroundImage.draw(background);
     backgroundImage.move();
@@ -66,14 +67,17 @@ function updateScenario() {
         clearIntervals();
         const endScreen = document.querySelector(".end-game");
 
-        setTimeout(() => {
         if (orca.sink < 5) {
-           endScreen.classList.remove("displayNo");
-        }
             canvas.classList.add("displayNo");
+            endScreen.classList.remove("displayNo");
+
+            setTimeout(() => {
+                restartButton.classList.remove("displayNo");
         }, 3000);
+        }
+
     }
-    if (orca.sink >= 1) {
+    if (orca.sink >= 5) {
         clearIntervals();
         stop = true;
         screenRescue();
@@ -88,12 +92,12 @@ function clearIntervals() {
 }
 /*-------------------------------Data text--------------------------------*/
 function showData(life, x, y, k, b) {
-    ctx.font = "50px Arial";
-    ctx.fillText(life, 1000, 60);
-    ctx.font = "28px Arial";
+    ctx.font = "30px Arial";
+    ctx.fillText(life, 600, 60);
+    ctx.font = "18px Arial";
     ctx.fillText(`Remaining Bubbles: ${b}`, 30, 40);
-    ctx.font = "28px Arial";
+    ctx.font = "18px Arial";
     ctx.fillText(`Boats sunken: ${k}`, 30, 80);
-    ctx.font = "28px Arial";
-    ctx.fillText(`X: ${x},Y: ${y}`, 1820,40);
+    ctx.font = "18px Arial";
+    ctx.fillText(`X: ${x},Y: ${y}`, 1080,40);
 }

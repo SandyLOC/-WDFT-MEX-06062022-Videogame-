@@ -10,5 +10,5 @@ function randomNumbers(timer, endPosition, initPosition) {
 
 /*-------------------------------Collition using coordinates array--------------------------------*/
 function collision(hero, enemy, sizeY) {
-    return Array.from({length: (hero.x + 250) - (hero.x - 1)}, (n, i) => i + (hero.x)).includes(enemy.x + 10) && (Array.from({length: (hero.y + 150) - (hero.y - 1)}, (n, i) => i + (hero.y)).includes(enemy.y + (sizeY/2)))
+    return Array.from({length: (hero.x + hero.sizex) - (hero.x - 1)}, (n, i) => i + (hero.x)).includes(enemy.x + 10) && (Array.from({length: (hero.y + hero.sizey) - (hero.y - 1)}, (n, i) => i + (hero.y)).includes(enemy.y + (sizeY/2)))
  }

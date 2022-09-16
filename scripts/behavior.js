@@ -27,7 +27,7 @@ function keyBehavior() {
                 break;
             case " ":
                 if (orca.bubbles !== 0) {
-                    const bubble = orca.shoot(orca.x + 250, orca.y + 75, bubbleImage);
+                    const bubble = orca.shoot(orca.x + orca.sizex, orca.y + 45, bubbleImage);
                     bubbles.push(bubble);
                     orca.bubbles -= 1;
             }

@@ -7,8 +7,8 @@ class Orca extends Character {
     }
 
     moveFront() {
-        if (this.x <= 1700) {
-            this.x += 60;
+        if (this.x <= 1026) {
+            this.x += 30;
         } else {
             this.x = this.x
         }
@@ -16,8 +16,8 @@ class Orca extends Character {
     }
 
     moveBack() {
-        if (this.x >= 60) {
-            this.x -= 60;
+        if (this.x >= 30) {
+            this.x -= 30;
         } else {
             this.x = this.x
         }
@@ -25,8 +25,8 @@ class Orca extends Character {
     }
 
     jump() {
-        if (this.y >= 250) {
-            this.y -= 60;
+        if (this.y >= 160) {
+            this.y -= 30;
         } else {
             this.y = this.y
         }
@@ -34,8 +34,8 @@ class Orca extends Character {
     }
 
     goDown() {
-        if (this.y <= 1000) {
-            this.y += 60;
+        if (this.y <= 600) {
+            this.y += 30;
         } else {
             this.y = this.y
         }
@@ -46,7 +46,7 @@ class Orca extends Character {
         this.life -= damage;
     }
     getBubbles(bubbles) {
-        this.bubbles += bubbles;
+        if(this.bubbles <= 3) this.bubbles += bubbles;
     }
     shoot(x, y, image) {
         const createdBubble = new Bubble(x, y, image, ctx);
