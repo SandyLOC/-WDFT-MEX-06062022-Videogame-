@@ -54,7 +54,7 @@ function showRescue() {
     ctx.fillText("Whaly is free now, thanks to you!", 66, 522);
 
     if (friend.y < 360) friend.y += 2;
-    if (friend.x > 360) friend.x -= 10;
+    if (friend.x > 360) friend.x -= 4;
 
     if (friend.x <= 360){
         cancelAnimationFrame(rescueFrame);
